@@ -1,0 +1,23 @@
+
+{% extends ['template/head.twig','template/spaces.twig'] %}
+
+{% block page_tittle %}Email{% endblock %}
+ {% block content %}
+     {%  include'template/navigation.twig' with  {'navlink' : 'true' } %}
+     {% block bottom_20 %} &nbsp;  {% endblock %}
+     <div class="subtitle">Add A Email Address</div>
+     {{ block ('bottom_20') }}
+    <form action="/email/manage" style="text-align: -webkit-center;" method="post">
+        <div >
+            <div >
+                {%  include'template/inputs.twig' with  {'inpid' :  'inp_add' , 'inptype': 'text' ,'lab':'User','inpname':'name', 'required' :true,'rightaddon':'true','addontext': '@' ~ result.domain ,'tip_data' :  '@' ~ result.domain ,'tip_dir' :'right' } %}
+            </div>
+            <div style="padding-bottom: 20px"></div>
+            {%  include'template/inputs.twig' with  {'inpid' :  'mcp1' , 'inptype': 'password','labid':'mcp_1' ,'lab':'Password','inpname':'pass','validate':true , 'required' :true ,'tip_data' : 'Password Must Contains atleast one letter , one number , one symbol and have minimum 10 charcters length ','tip_dir' :'right' } %}
+            <div style="padding-top: 10px;padding-bottom: 10px">
+        <input type="hidden" name="quota"  class="form-control"  value="500">
+        <button style="width: 100% " type="submit" name="addemail" class="button blue" >Add Email Account</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

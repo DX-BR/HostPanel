@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    {% block head %} {% endblock %}
+</head>
+
+<body class="bg" onload="screen_resize()">
+                {% if error_message %}
+                    <div class="alert error" id="alert">
+                        <div class="head">
+                            <div class="addon">&#x26D4;</div>
+                            <div class="title"> Error </div>
+                            <span id="clo" onclick="alert_hide(this)"  class="close">&#10006;</span>
+                        </div>
+                        <div class="content">
+                            <div class="body">
+                                <span>{{ error_message}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {% if success_message %}
+                    <div class="alert success">
+                        <div class="head">
+                            <div class="addon">&#10004;</div>
+                            <div class="title">Success!</div>
+                            <span id="cl" onclick="alert_hide(this)" class="close">&#10006;</span>
+                        </div>
+                        <div class="content">
+                            <div class="body">
+                                <span>{{ success_message}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {% if warning_message %}
+                <div class="alert warning">
+                    <div class="head">
+                        <div class="addon">&#9888;</div>
+                        <div class="title"> Warning </div>
+                        <span class="close">&#10006;</span>
+                    </div>
+                    <div class="content">
+                        <div class="body">
+                            <span>{{ warning_message }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+
+                {% block content %}
+                {% endblock %}
+{% block footer %}
+{% set footer %}
+        <footer class="footer">
+            &copy;Copyright 2020 HostPanel.
+        </footer>
+{% endset %}
+{% endblock %}
+</body>
+
+</html>

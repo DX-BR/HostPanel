@@ -1,0 +1,21 @@
+{% block content %}
+    <div style="border: 2px #343a40;border-style: none none ridge;padding: 5px;"></div>
+    {% block bottom_20 %} &nbsp;  {% endblock %}
+<div class="subtitle">Databases User's</div>
+    <form  action="/db/manage" method="post" >
+        <div class="table">
+            <div class="tr thin-hide">
+                <span class="th">Database</span>
+                <span class="th ">Action</span>
+            </div>
+            {% for data in result  %}
+                {{ block('bottom_20') }}
+                <div class="tr">
+                    <span class="td" title="Domain  ">{{ data.database   }} ({{ data.disk_usage}} bytes)</span>
+                    <span class="td" title="Action  "><button value="{{ data.database}}" name="remove" class="button blue">Remove</button></span>
+                </div>
+            {% endfor %}
+        </div>
+    </form>
+    {{ block('bottom_20') }}
+{% endblock %}

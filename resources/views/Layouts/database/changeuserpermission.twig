@@ -1,0 +1,31 @@
+{% block content %}
+    {% set body %}
+        <div>
+            {% block bottom_20 %} &nbsp;  {% endblock %}
+            <div class="subtitle"> Select Database :</div>
+            {{ block('bottom_20') }}
+            <form action="/db/manage" method="post">
+                <div class="form-group ">
+                    {%  include'template/inputs.twig' with  {'inptype':'options','inpid':'ar','inpname':'database','label':'Select Any','options':result2,'value':'database'} %}
+                    {{ block('bottom_20') }}
+            <div class="subtitle"> Select Database User:</div>
+                    {{ block('bottom_20') }}
+                    {%  include'template/inputs.twig' with  {'inptype':'options','inpid':'ar2','inpname':'database_user','label':'Select Any','options':result,'value':'user'} %}
+                    {{ block('bottom_20') }}
+
+            <div class="subtitle"> GIVE PERMISSIONS FOR USER :</div>
+            {{ block('bottom_20') }}
+                               {% set permissions =  ['ALTER' ,'CREATE','CREATE TEMPORARY TABLES','CREATE VIEW','DELETE','EVENT','DROP','EXECUTE','INDEX','INSERT','LOCK TABLES','REFERENCES','SELECT','SHOW VIEW','TRIGGER','UPDATE']  %}
+                    {% for per in permissions %}
+                            <li class="li" ><input name="{{ per }}" type="checkbox" id="{{ per }}" class=" chk" value="{{ per }}"><label class="label fa " for="{{ per }}"> &nbsp; <span style="font-family: zillaslab,sans-serif">{{ per }} </span></label></li>
+                        {% endfor %}
+                    <input type="hidden" value="" name="User_Name" id="User_Name2">
+                    <div style="padding-bottom: 20px"></div>
+                    <button name="change_user_permission" type="submit" class="button blue " >Set Permissions</button>
+                </div>
+            </form>
+        </div>
+    {% endset %}
+    {% set model_body ={'model_body' :  body  } %}
+    {%  include'template/model.twig' with  {'model_body' :  body , 'model_id': 'User_Permission' } %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'template/head.twig' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    {%  include'template/navigation.twig' with  {'navlink' : 'true' } %}
+    <div style="padding-top: 20px"></div>
+        <div style="display: block" >
+            <a href="/subdomain" style="min-width: 150px;padding: 15px" class="button green ls">Sub domain</a>
+            <a href="/email" style="min-width: 150px;padding: 15px" class="button green ls"> Email Account</a>
+            <a href="/db" style="min-width: 150px;padding: 15px" class="button green ls">Database</a>
+            <a href="/ftp" style="min-width: 150px;padding: 15px" class="button green ls">File Management</a>
+        </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% if result[0] == "Not Available" %}
+
+{% else %}
+    {% block content %}
+        {% block bottom_20 %} &nbsp;  {% endblock %}
+        <div class="subtitle"> Ftp User List</div>
+        {{ block('bottom_20') }}
+        <form  action="/ftp/manage" method="post" >
+            <div class="table">
+                <div class="tr thin-hide">
+                    <span class="th">User Name</span>
+                    <span class="th">Password</span>
+                    <span class="th ">Action</span>
+                </div>
+                {% for ftp in result  %}
+                    {{ block('bottom_20') }}
+                    <div class="tr">
+                        <span class="td" title="User Name ">{{ ftp }}</span>
+                        <span class="td" title="Password  "><div data-value="{{ ftp }}" data-name="username" data-target="change_pass" data-action="show"  onclick="pop(this)" class="button blue">Change Password</div></span>
+                        <span class="td" title="Action  "><button value="{{ ftp }}" name="removeuser" class="button blue">Remove</button></span>
+                    </div>
+                {% endfor %}
+            </div>
+        </form>
+    {% endblock %}
+{% endif %}

@@ -1,0 +1,16 @@
+{% extends ['template/head.twig','template/spaces.twig'] %}
+{% block page_tittle %}SubDomain{% endblock %}
+{% block content %}
+    {%  include'template/navigation.twig' with  {'navlink' : 'true' } %}
+    {% block bottom_20 %} &nbsp;  {% endblock %}
+    <div class="subtitle">Add a sub domain</div>
+    {{ block ('bottom_20') }}
+    <form action="/subdomain/manage" method="post">
+                <div style="padding-bottom: 20px"></div>
+                {%  include'template/inputs.twig' with  {'inpid' :  'inp_add' , 'inptype': 'text' ,'lab':'SubDomainName','inpname':'domain', 'required' :true } %}
+        <div style="padding-bottom: 20px"></div>
+        <input type="hidden" name="dir" value="{{ result.domain }}/" readonly placeholder="/public_html/" class="form-control">
+                <span style="padding-left: 20px"> </span>
+             <button type="submit" class="button blue" name="addsubdomain" style="border-radius: 0px">Add sub domain</button>
+        </form>
+{% endblock %}

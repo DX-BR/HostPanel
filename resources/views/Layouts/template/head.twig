@@ -1,0 +1,14 @@
+{% extends 'template/default.twig' %}
+ {% block head %}
+     {{ parent() }}
+     <title>{% block page_tittle %}{% endblock %}</title>
+{#     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">#}
+{#     <link rel="stylesheet" href="/bootstrapcss" />#}
+{#     <script src="/jquery"></script>#}
+{#     <script src="/bootstrapjs"></script>#}
+     <link rel="stylesheet" href="/mainstyle" />
+     <script type="text/javascript" src="/mainscript"></script>
+     {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+     {#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>#}
+     {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+ {% endblock %}

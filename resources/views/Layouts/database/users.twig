@@ -1,0 +1,44 @@
+{% block content %}
+{% block bottom_20 %} &nbsp;  {% endblock %}
+<div style="border: 2px #343a40;border-style: none none ridge;padding: 5px;"></div>
+{{ block('bottom_20') }}
+
+<div class="subtitle">Create Database User's</div>
+
+<div>
+    <form action="/db/manage" method="post">
+        <div style="padding-bottom: 20px"></div>
+        {%  include 'template/inputs.twig' with  {'inpid' :  'dbusn1' , 'inptype': 'text' ,'lab':'Database User name','inpname':'user_name','length' : '20', 'required' :true } %}
+        <div style="padding-bottom: 20px"></div>
+        {%  include 'template/inputs.twig' with  {'inpid' :  'dbusp1' , 'inptype': 'password','labid':'dbuspl1' ,'lab':'Password','inpname':'Password','validate':true , 'required' :true ,'tip_data' : 'Password Must Contains atleast one letter , one number , one symbol and have minimum 10 charcters length ','tip_dir' :'right' } %}
+        <div style="padding-bottom: 20px"></div>
+            <button type="submit" name="adduser" class="button blue">Add Database User</button>
+    </form>
+</div>
+    {{ block('bottom_20') }}
+    <div style="border: 2px #343a40;border-style: none none ridge;padding: 5px;"></div>
+    {{ block('bottom_20') }}
+
+    <div class="subtitle"> Databases User's</div>
+    <form  action="/db/manage" method="post" >
+        <div class="table">
+            <div class="tr thin-hide">
+                <span class="th">Users</span>
+                <span class="th">Change Password</span>
+                <span class="th">Permissions</span>
+                <span class="th ">Action</span>
+            </div>
+            {% for data in result  %}
+                {% if data.user|length  %}
+                {{ block('bottom_20') }}
+                <div class="tr">
+                    <span class="td" title="Users  ">{{ data.user }} </span>
+                    <span class="td" title="Password  "><div data-value="{{ data.user }}" data-name="User_Name"  data-target="change_pass" data-action="show"  onclick="pop(this)" class="button blue">Change Password</div></span>
+                    <span class="td" title="Permissions  "> <div data-value="{{ data.user }}" data-name="User_Name2"  data-target="User_Permission" data-action="show"  onclick="pop(this)"  class="button blue">Permissions</div></span>
+                    <span class="td" title="Action  "><button value="{{ data.user}}" name="user_remove" class="button blue">Remove</button></span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </form>
+{% endblock %}

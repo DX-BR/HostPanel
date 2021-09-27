@@ -1,0 +1,12 @@
+{% block content %}
+    <div>
+    <div id="{{ model_id }}" class="modal">
+        <div class="modal-content">
+            <span style="align-self: flex-end" class="close" data-target="{{ model_id }}" data-action="hide"  onclick="pop(this)">&times;</span>
+            {{ model_body}}
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}

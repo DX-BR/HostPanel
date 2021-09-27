@@ -1,0 +1,19 @@
+{
+  "name": "hostpanel",
+  "version": "1.1.0",
+  "author": "Arun",
+  "private": true,
+  "dependencies": {
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-csso": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-rename": "latest",
+    "gulp-plumber": "latest",
+    "gulp-twig": "latest"
+  },
+  "devDependencies": {}
+}

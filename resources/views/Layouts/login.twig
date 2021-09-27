@@ -1,0 +1,21 @@
+{% extends 'template/head.twig' %}
+{% block page_tittle %}Login{% endblock %}
+{% block content %}
+    {%  include'template/navigation.twig' with  {'navlink' : false } %}
+    <div style="padding-top: 100px"></div>
+<form action="/login" method="post">
+    <div class="form-group " style="text-align: center;">
+        {%  include 'template/inputs.twig' with  {'inpid' :  'inp_username' , 'inptype': 'text' ,'lab':'username','inpname':'username','length' : '40', 'required' :true } %}
+        <div style="padding-bottom: 20px"></div>
+        {% set tip %}
+        {% endset %}
+        {%  include 'template/inputs.twig' with  {'inpid' :  'user_pass1' , 'inptype': 'password','labid':'userpass1' ,'lab':'password','inpname':'password', 'required' : 1 } %}
+            <div style="padding-top: 10px;padding-bottom: 10px">
+        <div class="input-group">
+            <button type="submit" class="button blue">Sign In</button>
+        </div>
+    </div>
+    <p >Want to Register ? <a href="/register">Click here</a> </p>
+    </div>
+</form>
+{% endblock %}

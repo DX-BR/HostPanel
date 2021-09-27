@@ -1,0 +1,22 @@
+
+{% extends ['template/head.twig','template/spaces.twig'] %}
+
+{% block page_tittle %}Ftp{% endblock %}
+ {% block content %}
+     {%  include'template/navigation.twig' with  {'navlink' : true } %}
+     {% block bottom_20 %} &nbsp;  {% endblock %}
+     <div class="subtitle">Create A FTP User Account</div>
+     {{ block ('bottom_20') }}
+     <form action="/ftp/manage" style="text-align: -webkit-center;" method="post">
+         <div style="width: max-content">
+
+             <div style="padding-bottom: 20px"></div>
+             {%  include 'template/inputs.twig' with  {'inpid' :  'usn1' , 'inptype': 'text' ,'lab':'User Name','inpname':'user_name','length' : '30', 'required' :true } %}
+             <div style="padding-bottom: 20px"></div>
+             {%  include 'template/inputs.twig' with  {'inpid' :  'usp1' , 'inptype': 'password','labid':'uspl1' ,'lab':'Password','inpname':'password','validate':true , 'required' :true ,'tip_data' : 'Password Must Contains atleast one letter , one number , one symbol and have minimum 10 charcters length ','tip_dir' :'right' } %}
+             <div style="padding-bottom: 20px"></div>
+             <input type="hidden" name="quota"  class="form-control"  value="500">
+             <button style="width: 100% " type="submit" name="adduser" class="button blue" >Add Ftp User Account</button>
+         </div>
+     </form>
+ {% endblock %}

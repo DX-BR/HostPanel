@@ -1,0 +1,14 @@
+
+{% extends ['template/head.twig','template/spaces.twig'] %}
+
+{% block content %}
+    {%  include'template/navigation.twig' with  {'navlink' : 'true' } %}
+    {% block bottom_20 %} &nbsp;  {% endblock %}
+    <div class="subtitle">Add a Database</div>
+    {{ block ('bottom_20') }}
+    <form action="/db/manage" method="post">
+        <div style="padding-bottom: 20px"></div>
+        {%  include 'template/inputs.twig' with  {'inpid' :  'addbu1' , 'inptype': 'text' ,'lab':'Database Name','inpname':'database_name','length' : '20', 'required' :true } %}
+        <button type="submit"  name="createdb" class="button blue" style="border-radius: 0px;">Add Database</button>
+    </form>
+{% endblock %}

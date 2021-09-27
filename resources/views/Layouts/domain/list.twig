@@ -1,0 +1,26 @@
+
+{% if result[0] == "Not Available" %}
+
+{% else %}
+{% block content %}
+
+    {% block bottom_20 %} &nbsp;  {% endblock %}
+    <div class="subtitle"> Sub Domiain List</div>
+    {{ block('bottom_20') }}
+    <form  action="/subdomain/manage" method="post" >
+<div class="table">
+    <div class="tr thin-hide">
+        <span class="th">Domain</span>
+        <span class="th ">Action</span>
+    </div>
+    {% for domain in result  %}
+        {{ block('bottom_20') }}
+        <div class="tr">
+        <span class="td" title="Domain  ">{{ domain }}</span>
+        <span class="td" title="Action  "><button value="{{ domain }}" name="remove" class="button blue">Remove</button></span>
+    </div>
+    {% endfor %}
+</div>
+</form>
+{% endblock %}
+{% endif %}

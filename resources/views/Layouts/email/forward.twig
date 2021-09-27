@@ -1,0 +1,16 @@
+{% block content %}
+    {% set body %}
+        <div>
+            <form action="/email/manage" method="post">
+                <div style="padding-bottom: 20px"></div>
+                {%  include 'template/inputs.twig' with  {'inpid' :  'fe1' , 'inptype': 'email' ,'lab':'Email Address','inpname':'fwdemail','length' : '30', 'required' :true } %}
+                <input type="hidden" required value="" name="email" id="forward">
+                <div style="padding-top: 10px;padding-bottom: 10px"></div>
+                <button type="submit"  name="Forward"  class="button blue">Auto Forward</button>
+            </form>
+        </div>
+    {% endset %}
+    {% set model_body ={'model_body' :  body  } %}
+    {%  include'template/model.twig' with  {'model_body' :  body , 'model_id': 'email_forward'}  %}
+
+{% endblock %}

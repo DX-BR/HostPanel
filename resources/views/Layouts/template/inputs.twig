@@ -1,0 +1,43 @@
+{% block content %}
+    {% if inptype == "password" %}
+        <label for="{{ inpid }}" class="inp" id="{{ labid }}" >
+            <span  {% if tip_data == true %} class="tip"  {% endif%} >
+{#            <input type="password" autocomplete="off"  id="{{ inpid }}" {% if validate ==true %} onchange="updatePasswordMeter(this.value,'{{ labid }}')" onkeypress="updatePasswordMeter(this.value,'{{ labid }}')" {% endif%} {% if required == true %} required {% endif%} name="{{ inpname }}" placeholder="&nbsp;" >#}
+            <input type="password" autocomplete="off"  id="{{ inpid }}" {% if validate ==true %} onkeyup="PasswordMeter(this)" {% endif%} {% if required == true %} required {% endif%} name="{{ inpname }}" placeholder="&nbsp;" >
+            <span class="label">{{ lab }}</span>
+            <span class="right-ico eye" onclick="pass_toggle('{{ inpid }}',this)">	&#128065;</span>
+            </span>
+        </label>
+    {% elseif inptype =="text" %}
+            <label for="{{ inpid }}" class="inp">
+                <span  {% if tip_data == true %} class="tip"  data-tip-main="{{ tip_data }}"  {% endif%}>
+                <input autocomplete="off" type="text" {% if rightaddon ==true %}  onfocusin="inp_border(this)" onfocusout="inp_border(this)" {% endif%} required id="{{ inpid }}" name="{{ inpname }}" {% if required == true %} value="" required {% endif%} {% if length == true%} maxlength="{{ length }}"  {% endif %}placeholder="&nbsp;" {% if tip_data == true %} onkeyup="additionalinfo(this)"  {% endif %}" >
+                <span class="label">{{ lab }}</span>
+                {% if rightaddon ==true %}
+{#                    <span class="right-addon" id="{{ inpid }}right" style="width: max-content;{{ addonstyle }} margin-left: {{ rightaddonsize }} "  >{{ addontext }}</span>#}
+                {% endif %}
+                </span>
+            </label>
+    {% elseif inptype =="email"%}
+        <label for="{{ inpid }}" class="inp">
+            <span  {% if tip_data == true %} class="tip" data-tip="{{ tip-data }}" data-tip-direction="{{ tip-dir }}" {% endif%}>
+            <input autocomplete="off" type="email" onfocusin="inp_border(this)" onfocusout="inp_border(this)"  required id="{{ inpid }}" name="{{ inpname }}" {% if required == true %} required {% endif%} {% if length == true%} maxlength="{{ length }}" {% endif %}placeholder="&nbsp;">
+            <span class="label">{{ lab }}</span>
+            {% if rightaddon ==true %}
+                <span class="right-addon" id="{{ inpid }}right" style="width: max-content;{{ addonstyle }} margin-left: {{ rightaddonsize }} "  >{{ addontext }}</span>
+            {% endif %}
+            </span>
+        </label>
+    {% elseif inptype =="options" %}
+        <div class="select" onclick="dis(this)">
+            <button type="button" id="{{ inpid }}" name="{{ inpname }}" class=" " >{{ label }}</button>
+            <ul role="listbox" id="ul-id" >
+                {% for data in options %}
+                    {% if attribute(data, value)  | length  %}
+                    <li role="option" onclick="sel('{{ inpid }}',this)" >{{ attribute(data, value) }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}

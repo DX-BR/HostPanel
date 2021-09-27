@@ -1,0 +1,28 @@
+{% if result[0] == "Not Available" %}
+
+{% else %}
+{% block content %}
+    {% block bottom_20 %} &nbsp;  {% endblock %}
+    <div class="subtitle"> Email List</div>
+    {{ block('bottom_20') }}
+    <form  action="/email/manage" method="post" >
+    <div class="table">
+        <div class="tr thin-hide">
+            <span class="th">Email</span>
+            <span class="th">Password</span>
+            <span class="th ">Forward</span>
+            <span class="th ">Action</span>
+        </div>
+        {% for email in result  %}
+            {{ block('bottom_20') }}
+            <div class="tr">
+                <span class="td" title="Email  ">{{ email }}</span>
+                <span class="td" title="Password  "><div data-value="{{ email }}" data-name="pass" data-target="change_pass" data-action="show"  onclick="pop(this)" class="button blue">Change Password</div></span>
+                <span class="td" title="Forward  "> <div data-value="{{ email }}" data-name="forward" data-target="email_forward" data-action="show"  onclick="pop(this)"  class="button blue">Auto Forward</div></span>
+                <span class="td" title="Action  "><button value="{{ email }}" name="delete" class="button blue">Remove</button></span>
+            </div>
+        {% endfor %}
+    </div>
+    </form>
+ {% endblock %}
+{% endif %}

@@ -1,0 +1,55 @@
+button{
+    font-size: 120%;
+}
+.button {
+    display: inline-block;
+    text-align: center;
+    min-width: max-content;
+    border: 0;
+    font-size: 100%;
+    border-radius: 5px;
+    padding: 6px 15px;
+    text-decoration: none;
+    transition: all 0.4s ease 0s;
+}
+.button:not(:disabled){
+    cursor: pointer;
+}
+.button.blue{
+    color: white;
+    background-color: #6B7A8F;
+}
+.button.blue:hover{
+    background-color: #476186;
+    
+    transition: all 0.4s ease 0s;
+}
+.button.green{
+    color: white;
+    background-color: #1e7e34;
+}
+.button.red{
+    color: white;
+    background: #c82333;
+}
+.button.ls{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+.button:hover{
+    text-decoration: none;
+}
+.borderwhite:hover{
+    text-decoration: none;
+    border-color: whitesmoke;
+    color: whitesmoke;
+}
+.button:focus{
+    text-decoration: none;
+    outline: 0;
+}
+.button:active{
+    text-decoration: none;
+    outline: 0;
+}

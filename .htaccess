@@ -1,0 +1,16 @@
+Header always unset X-Powered-By
+Header unset X-Powered-By
+Header append X-FRAME-OPTIONS "SAMEORIGIN"
+Header set X-Content-Security-Policy "allow 'self';"
+Header set X-Content-Type-Options "nosniff"
+Header set X-XSS-Protection "1; mode=block"
+ServerSignature Off
+RewriteEngine on
+RewriteCond %{QUERY_STRING} ^[^=]*$
+RewriteCond %{QUERY_STRING} %2d|\- [NC]
+RewriteRule .? - [F,L]
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]

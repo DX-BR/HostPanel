@@ -1,0 +1,223 @@
+.li{
+    display: inline;
+    margin: 8px;
+}
+.li input[type="checkbox"]{
+    opacity: 0;
+    display: none;
+    margin-bottom: 0;
+}
+.li > label{
+    display: inline-block;
+    color: black;
+    border-radius: 25px;
+    user-select: none;
+    transition: all .2s;
+    padding: 6px 15px;
+    border: 2px solid rgba(139, 139, 139, .1);
+    background-color: #e0e0e080;
+    cursor: pointer;
+}
+.li > label::before {
+    content: "\f067";
+}
+.li > input[type="checkbox"]:checked + label{
+    background: #1e7e34;
+    color: white;
+}
+.li > input[type="checkbox"]:checked + label::before{
+    content: "\f00c";
+}
+.addonsub{
+    text-align: left;
+    font-size: 130%;
+    width: 30%;
+    padding: 0;
+    border: 0;
+}
+.inp {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 3px;
+    overflow: visible;
+}
+.inp > .label ,.inp > span > .label{
+    position: absolute;
+    top: 0;
+    left: 12px;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+.inp > input ,.inp > span >input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-width: 250px;
+    border: 0;
+    font-family: inherit;
+    padding: 6px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom-color: #000;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    padding-right: 40px;
+    background: transparent;
+}
+.inp > .right-addon ,.inp > span >.right-addon{
+    position:absolute;
+    padding: 6px;
+    height: 40px;
+    border: 0;
+    font-family: inherit;
+    border-bottom-color: #000;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    background: transparent;
+}
+.right-addon.active{
+    border-color: #3e2723;
+    border-style: solid;
+    border-width: 2px;
+    border-left-style: none;
+    background: white;
+}
+.inp > input:not(:placeholder-shown) + .label , .inp > span >input:not(:placeholder-shown) + .label{
+    color: #000;
+    -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+    transform: translate3d(0, -18px, 0) scale(0.75);
+}
+
+.inp > input:hover , .inp > span > input:hover{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+.inp > input:focus , .inp > span > input:focus{
+    outline: none;
+    border-bottom-color: #3e2723;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+.inp > input:focus , .inp > span > input:focus{
+    border-color: #3e2723;
+    border-style: solid;
+    border-width: 2px;
+    background: white;
+}
+.inp > input:focus + .label , .inp > span >input:focus + .label{
+    color: #3e2723;
+    background:whitesmoke;
+    height: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-transform: translate3d(0, -20px, 0) scale(0.75);
+    transform: translate3d(0, -20px, 0) scale(0.75);
+}
+.wrong input , .wrong > span >input{
+    border-bottom-color: red;
+}
+.wrong input:focus , .wrong > span >input:focus{
+    border-color: red;
+}
+
+.ok input, .ok > span > input{
+    border-bottom-color: #3e2723;
+}
+.ok input:focus, .ok > span > input:focus{
+    border-color: green;
+}
+.left-addon{
+    position:absolute;
+    margin-left:10px;
+    margin-top: 10px;
+}
+.right-ico{
+    position: absolute;
+    top: -6px;
+    margin-left: -30px;
+}
+.right-ico.eye{
+    font-size: 20px;
+}
+.select{
+    max-width: 360px;
+}
+.select *, .select :after, .select :before {
+    box-sizing: border-box;
+}
+.select [type=button] {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.12);
+    border-width: 0 0 1px 0;
+    color: rgba(0, 0, 0, 0.73);
+    cursor: default;
+    display: block;
+    line-height: 48px;
+    padding: 2px 0 1px 16px;
+    position: relative;
+    text-align: left;
+    text-shadow: none;
+    width: 100%;
+    z-index: 1;
+    outline: none;
+    overflow: hidden;
+}
+.select [type=button]:focus, .select [type=button]:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+.select [type=button]:after {
+    content: '\25be';
+    float: right;
+    padding-right: 16px;
+}
+.select > ul {
+    background-color: white;
+    cursor: default;
+    list-style: none;
+    line-height: 26px;
+    overflow: hidden;
+    margin: 0;
+    max-height: 0;
+    position: absolute;
+    padding: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
+    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+}
+.select > ul > li {
+    height: 48px;
+    margin: 0;
+    padding: 10px 16px;
+    outline: none;
+    overflow: hidden;
+}
+.select > ul > li:focus, .select > ul > li:hover, .select > ul > li.active {
+    background: rgba(0, 0, 0, 0.1);
+}
+.select.active ul {
+    max-height: 200px;
+    overflow: auto;
+    padding: 8px 0 16px 0px;
+    z-index: 2;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    max-width: 360px;
+}
